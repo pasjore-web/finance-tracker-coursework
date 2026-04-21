@@ -11,7 +11,7 @@ def main():
     manager.users["Jonas"].set_limit("monthly", 1000)
 
     t1 = TransactionFactory.create_transaction("income", 1200, "Salary", "Monthly salary")
-    t2 = TransactionFactory.create_transaction("expense", 500, "Food", "Big groceries")
+    t2 = TransactionFactory.create_transaction("expense", 200, "Food", "Big groceries")
     t3 = TransactionFactory.create_transaction("income", 600, "Freelance", "Side project")
     t4 = TransactionFactory.create_transaction("expense", 100, "Transport", "Bus card")
 
@@ -27,11 +27,11 @@ def main():
     print("\n=== GROUP DEPOSIT ===")
 
     manager.group_deposit(
-    ["Jonas", "Petras"],
-    "income",
-    200,
-    "Bonus",
-    "Group bonus"
+        ["Jonas", "Petras"],
+        "income",
+        200,
+        "Bonus",
+        "Group bonus"
     )
 
     manager.show_user("Jonas")
