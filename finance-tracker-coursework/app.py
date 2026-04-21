@@ -1,5 +1,5 @@
-from models.transaction import IncomeTransaction, ExpenseTransaction
 from services.finance_manager import FinanceManager
+from services.transaction_factory import TransactionFactory
 
 
 def main():
@@ -8,27 +8,19 @@ def main():
     manager.add_user("Jonas")
     manager.add_user("Petras")
 
-    manager.add_transaction("Jonas", IncomeTransaction(1200, "Salary", "Monthly salary"))
-    manager.add_transaction("Jonas", ExpenseTransaction(250, "Food", "Groceries"))
+    t1 = TransactionFactory.create_transaction("income", 1200, "Salary", "Monthly salary")
+    t2 = TransactionFactory.create_transaction("expense", 250, "Food", "Groceries")
+    t3 = TransactionFactory.create_transaction("income", 600, "Freelance", "Side project")
+    t4 = TransactionFactory.create_transaction("expense", 100, "Transport", "Bus card")
 
-    manager.add_transaction("Petras", IncomeTransaction(600, "Freelance", "Side project"))
-    manager.add_transaction("Petras", ExpenseTransaction(100, "Transport", "Bus card"))
+    manager.add_transaction("Jonas", t1)
+    manager.add_transaction("Jonas", t2)
+    manager.add_transaction("Petras", t3)
+    manager.add_transaction("Petras", t4)
 
-    print("=== BEFORE SAVE ===")
     manager.show_user("Jonas")
     print("-----")
     manager.show_user("Petras")
-
-    manager.save_data("data/finance_data.json")
-    print("\nData saved to file.\n")
-
-    new_manager = FinanceManager()
-    new_manager.load_data("data/finance_data.json")
-
-    print("=== AFTER LOAD ===")
-    new_manager.show_user("Jonas")
-    print("-----")
-    new_manager.show_user("Petras")
 
 
 if __name__ == "__main__":
