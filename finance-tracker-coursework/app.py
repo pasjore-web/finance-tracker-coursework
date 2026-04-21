@@ -23,6 +23,20 @@ def main():
     manager.show_user("Jonas")
     print("-----")
     manager.show_user("Petras")
+  
+    print("\n=== GROUP DEPOSIT ===")
+
+    manager.group_deposit(
+    ["Jonas", "Petras"],
+    "income",
+    200,
+    "Bonus",
+    "Group bonus"
+    )
+
+    manager.show_user("Jonas")
+    print("-----")
+    manager.show_user("Petras")
 
 
 if __name__ == "__main__":

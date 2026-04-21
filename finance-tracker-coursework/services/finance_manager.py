@@ -1,5 +1,6 @@
 from models.user import User
 from services.file_handler import FileHandler
+from services.transaction_factory import TransactionFactory
 
 
 class FinanceManager:
@@ -31,3 +32,12 @@ class FinanceManager:
 
     def load_data(self, filename):
         self.users = FileHandler.load_from_file(filename)
+
+    def group_deposit(self, usernames, transaction_type, amount, category, description):
+        for username in usernames:
+            user = self.users.get(username)
+            if user:
+                transaction = TransactionFactory.create_transaction(
+                    transaction_type, amount, category, description
+                )
+                user.add_transaction(transaction)
