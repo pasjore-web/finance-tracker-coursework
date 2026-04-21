@@ -1,0 +1,60 @@
+{
+    "Jonas": {
+        "name": "Jonas",
+        "limits": {
+            "daily": null,
+            "weekly": null,
+            "monthly": null
+        },
+        "wallet": {
+            "balance": 950,
+            "transactions": [
+                {
+                    "transaction_id": "7d29fb9b",
+                    "amount": 1200,
+                    "category": "Salary",
+                    "description": "Monthly salary",
+                    "created_at": "2026-04-21 12:23:40",
+                    "type": "IncomeTransaction"
+                },
+                {
+                    "transaction_id": "b61df1aa",
+                    "amount": 250,
+                    "category": "Food",
+                    "description": "Groceries",
+                    "created_at": "2026-04-21 12:23:40",
+                    "type": "ExpenseTransaction"
+                }
+            ]
+        }
+    },
+    "Petras": {
+        "name": "Petras",
+        "limits": {
+            "daily": null,
+            "weekly": null,
+            "monthly": null
+        },
+        "wallet": {
+            "balance": 500,
+            "transactions": [
+                {
+                    "transaction_id": "406791fe",
+                    "amount": 600,
+                    "category": "Freelance",
+                    "description": "Side project",
+                    "created_at": "2026-04-21 12:23:40",
+                    "type": "IncomeTransaction"
+                },
+                {
+                    "transaction_id": "82a06171",
+                    "amount": 100,
+                    "category": "Transport",
+                    "description": "Bus card",
+                    "created_at": "2026-04-21 12:23:40",
+                    "type": "ExpenseTransaction"
+                }
+            ]
+        }
+    }
+}
