@@ -15,6 +15,20 @@ class User:
     def add_transaction(self, transaction):
         if self.wallet is None:
             self.create_wallet()
+
+        if transaction.__class__.__name__ == "ExpenseTransaction":
+            if self.limits["daily"] is not None and transaction.amount > self.limits["daily"]:
+                print("Daily limit exceeded!")
+                return
+
+            if self.limits["weekly"] is not None and transaction.amount > self.limits["weekly"]:
+                print("Weekly limit exceeded!")
+                return
+
+            if self.limits["monthly"] is not None and transaction.amount > self.limits["monthly"]:
+                print("Monthly limit exceeded!")
+                return
+
         self.wallet.add_transaction(transaction)
 
     def remove_transaction(self, transaction_id):
